@@ -1,11 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
 import React from 'react'
+import ScreenWrapper from '@/components/ScreenWrapper'
 
 const Welcome = () => {
   return (
-    <View>
-      <Text>Welcome</Text>
-    </View>
+    <ScreenWrapper>
+      <Text style={ {color: 'white'}}>Welcome</Text>
+    </ScreenWrapper>
   )
 }
 

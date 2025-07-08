@@ -1,14 +1,27 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Dimensions, Platform, StatusBar, StyleSheet, Text, View } from 'react-native'
+import React, { Children } from 'react'
+import { ScreenWrapperProps } from '@/types'
+import { colors } from '@/constants/theme'
+import { StackActions } from '@react-navigation/native'
 
-const ScreenWrapper = () => {
+const {height} = Dimensions.get('window'):
+
+const ScreenWrapper = ({style, children}: ScreenWrapperProps) => {
+    let paddingTop = Platform.OS == 'ios' ? height*0.06 : 50
   return (
-    <View>
-      <Text>ScreenWrapper</Text>
+    <View
+      style={[{
+        paddingTop,
+        flex: 1,
+        backgroundColor : colors.neutral900
+      },style]}>
+      
+      <StatusBar barStyle="light-content" />
+      {children}
     </View>
   )
 }
 
 export default ScreenWrapper
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({})  
