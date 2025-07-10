@@ -4,6 +4,8 @@ import ScreenWrapper from '@/components/ScreenWrapper'
 import { colors, spacingX, spacingY } from '@/constants/theme'
 import { verticalScale } from '@/utils/styling'
 import Typo from '@/components/Typo'
+import Button from '@/components/Button'
+import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated'
 
 const Welcome = () => {
   return (
@@ -11,27 +13,34 @@ const Welcome = () => {
       <View style={styles.container}>
         {/*login button */}
 
+
         <View>
           <TouchableOpacity style={styles.loginButton}>
-            <Typo fontWeight={'500'}>Sign In</Typo>
+            <Typo size={18} fontWeight={'500'}>Sign In</Typo>
           </TouchableOpacity>
 
-          <Image
-          source={require('../../assets/images/welcome.png')}
-          style={styles.welcomeImage}
-          resizeMode="contain"
-          />
+           
+          <Animated.Image
+            entering={FadeIn.duration(1500)}
+            source={require('../../assets/images/welcome.png')}
+            style={styles.welcomeImage}
+            resizeMode="contain"
+          />  
         </View>
 
         {/*Footer */}
         <View style={styles.footer}>
-          <View style={{alignItems:'center', gap:2}}>
-            <Typo size={17} fontWeight={400} >Always be in Control</Typo>
-            <Typo size={17} fontWeight={400} >of your Finances</Typo>
-          </View>
+          <Animated.View  entering={FadeInDown.duration(1500).springify().damping(12)}  style={{alignItems:'center', gap:2}}>
+            <Typo size={17} fontWeight={500} >Always be in Control</Typo>
+            <Typo size={17} fontWeight={500} >of your Finances</Typo>
+          </Animated.View>
 
           <View style={styles.buttonContainer}>
-            {/* */}
+            <Button>
+              <Typo size={20} color={colors.neutral900} fontWeight={600}>
+                Get Started !!
+              </Typo>
+            </Button>
           </View>
 
         </View>
