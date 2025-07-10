@@ -4,7 +4,7 @@ import { ScreenWrapperProps } from '@/types'
 import { colors } from '@/constants/theme'
 import { StackActions } from '@react-navigation/native'
 
-const {height} = Dimensions.get('window'):
+const {height} = Dimensions.get('window');
 
 const ScreenWrapper = ({style, children}: ScreenWrapperProps) => {
     let paddingTop = Platform.OS == 'ios' ? height*0.06 : 50
