@@ -6,16 +6,19 @@ import { verticalScale } from '@/utils/styling'
 import Typo from '@/components/Typo'
 import Button from '@/components/Button'
 import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated'
+import { useRouter } from 'expo-router'
 
 const Welcome = () => {
+    const router = useRouter();
+
+
   return (
     <ScreenWrapper>
       <View style={styles.container}>
         {/*login button */}
 
-
         <View>
-          <TouchableOpacity style={styles.loginButton}>
+          <TouchableOpacity onPress={()=>router.push('/(auth)/login')} style={styles.loginButton}>
             <Typo size={18} fontWeight={'500'}>Sign In</Typo>
           </TouchableOpacity>
 
@@ -36,8 +39,8 @@ const Welcome = () => {
           </Animated.View>
 
           <View style={styles.buttonContainer}>
-            <Button>
-              <Typo size={20} color={colors.neutral900} fontWeight={600}>
+            <Button onPress={()=>router.push('/(auth)/register')}>
+              <Typo  size={20} color={colors.neutral900} fontWeight={600}>
                 Get Started !!
               </Typo>
             </Button>
